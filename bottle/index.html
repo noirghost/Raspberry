@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TESTOWY</title>
+</head>
+
+<body>
+<% 
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
+
+count = 0
+GPIO.setup(4, GPIO.OUT)
+GPIO.output(4, GPIO.LOW)
+time.sleep(1)
+    
+GPIO.setup(4, GPIO.IN)
+while GPIO.input(4) == GPIO.LOW:
+    count += 1
+
+end    
+%>
+
+<p>{{ count }}</p>
+
+<form action="/temp">
+            <input type="submit" value="CPU temp" />
+        </form>
+        
+<!--  <button> <a href="/temp">temp: CPU</a></button> -->
+
+</body>
+
+<script>
+setTimeout(function(){
+location.reload(); 
+},1000);
+</script>
+</html>
