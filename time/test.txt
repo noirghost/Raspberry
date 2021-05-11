@@ -1,3 +1,0 @@
-atom test
-from github
-from desktop
